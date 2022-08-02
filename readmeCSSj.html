@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width-device-widh, initial-scale=1.0">
+    <title>sacode membuat websait Email</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="hero">
+        <h3>Coming Soon!</h3>
+        <h1>Enaro New<br>Website is one it's way</h1>
+        <p>seamat mengisi Emailnya</p>
+        <form name="submit-to-google-sher1">
+            <input type="email" name="Email" placeholder="Your email id" required>
+            <button type="submit"><img src="images/ikon1.png" width="30px">
+            </button>
+        </form>
+        <span id="msg"></span>
+        <link rel="stylesheet" href="https://script.google.com/macros/s/AKfycbyIPX-0yIWckExTfRdWgqWwwX_Jpdt8AVxNZqKQ8bIvDwmUCHMBvP1SvtPivaTIrA3A/exec">
+    </div>
+
+    <script>
+            const scriptURL = 'AKfycbyIPX-0yIWckExTfRdWgqWwwX_Jpdt8AVxNZqKQ8bIvDwmUCHMBvP1SvtPivaTIrA3A'
+            const form = document.forms['submit-to-google-sher1']
+            const msg = document.getElementById("msg")
+
+            form.addEventlistener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL,{ method: 'POST', body:new FormData(form)})
+                .then(Response => {
+                    msg.innerHTML = "Online please whait.......!!"
+                    setTimeout(Function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+    </script>
+
+</body>
+</html>
